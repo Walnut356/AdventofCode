@@ -14,7 +14,7 @@ macro_rules! timeit {
 }
 
 fn main() {
-    let mut file = File::open("./test_data/day2.txt").unwrap();
+    let mut file = File::open("./test_data/day3.txt").unwrap();
     let mut data = String::new();
     file.read_to_string(&mut data).unwrap();
 
@@ -22,13 +22,13 @@ fn main() {
 
     timeit!(
         "Part One"
-        let res_1 = day2::part_one(data)
+        let res_1 = day3::part_one(data)
     );
 
     dbg!(res_1);
     timeit!(
         "Part Two"
-        let res_2 = day2::part_two(data2)
+        let res_2 = day3::part_two(data2)
     );
 
     dbg!(res_2);
