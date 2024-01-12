@@ -7,20 +7,19 @@ use aoc2015::*;
 
 
 fn main() {
-    dbg!(std::env::current_dir().unwrap());
-    let data = get_data(2);
+    let data = get_data(6);
 
     let data2 = data.clone();
 
     timeit!(
         "Part One"
-        let res_1 = day2::p1(data)
+        let res_1 = day6::p1(data)
     );
 
     dbg!(res_1);
     timeit!(
         "Part Two"
-        let res_2 = day2::p2(data2)
+        let res_2 = day6::p2(data2)
     );
 
     dbg!(res_2);

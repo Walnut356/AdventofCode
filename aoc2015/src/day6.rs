@@ -1,5 +1,7 @@
 #![allow(unused_imports)]
 
+use crate::get_data;
+
 pub fn p1(data: String) -> usize {
     let mut result = 0;
 
@@ -19,6 +21,6 @@ pub fn p2(data: String) -> usize {
 #[test]
 fn test_dx() {
     let data = get_data(1);
-    assert_eq!(d1_p1(data.clone()), 0);
-    assert_eq!(d1_p2(data), 0);
+    assert_eq!(p1(data.clone()), 0);
+    assert_eq!(p2(data), 0);
 }
