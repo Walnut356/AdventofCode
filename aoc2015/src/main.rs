@@ -1,34 +1,26 @@
-use std::{fs::File, hint::black_box};
+use std::{fs::File, slice};
 use std::io::prelude::*;
 use std::time::Instant;
 
 use aoc2015::*;
 
-macro_rules! timeit {
-    ($i:literal $x:stmt) => {
-        let now = Instant::now();
-        $x
-        let dur = now.elapsed();
-        println!("{}: {:?}", $i, dur);
-    }
-}
+
 
 fn main() {
-    let mut file = File::open("./test_data/day4.txt").unwrap();
-    let mut data = String::new();
-    file.read_to_string(&mut data).unwrap();
+    dbg!(std::env::current_dir().unwrap());
+    let data = get_data(2);
 
     let data2 = data.clone();
 
     timeit!(
         "Part One"
-        let res_1 = day4::part_one(data)
+        let res_1 = day2::p1(data)
     );
 
     dbg!(res_1);
     timeit!(
         "Part Two"
-        let res_2 = day4::part_two(data2)
+        let res_2 = day2::p2(data2)
     );
 
     dbg!(res_2);

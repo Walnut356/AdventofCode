@@ -2,6 +2,8 @@
 use strum::EnumString;
 use std::collections::HashSet;
 
+use crate::get_data;
+
 // #[derive(Debug, EnumString)]
 // enum Direction {
 
@@ -10,7 +12,7 @@ use std::collections::HashSet;
 #[derive(Debug, Hash, Eq, Clone, PartialEq, Copy)]
 struct Pos(i32, i32);
 
-pub fn part_one(data: String) -> usize {
+pub fn p1(data: String) -> usize {
     let mut pos = Pos(0, 0);
     let mut map: HashSet<Pos> = HashSet::new();
     map.insert(pos);
@@ -29,7 +31,7 @@ pub fn part_one(data: String) -> usize {
     map.len()
 }
 
-pub fn part_two(data: String) -> usize {
+pub fn p2(data: String) -> usize {
     let mut pos = Pos(0, 0);
     let mut map: HashSet<Pos> = HashSet::new();
     map.insert(pos);
@@ -58,4 +60,11 @@ pub fn part_two(data: String) -> usize {
     }
 
     map.len()
+}
+
+#[test]
+fn test_d3() {
+    let data = get_data(3);
+    assert_eq!(p1(data.clone()), 2592);
+    assert_eq!(p2(data), 2360);
 }

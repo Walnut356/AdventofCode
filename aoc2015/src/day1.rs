@@ -1,7 +1,9 @@
 #![allow(unused_imports)]
 
+use crate::get_data;
 
-pub fn part_one(data: String) -> isize {
+pub fn p1(data: String) -> isize{
+
     let mut result = 0;
 
     for char in data.chars() {
@@ -15,7 +17,7 @@ pub fn part_one(data: String) -> isize {
     result
 }
 
-pub fn part_two(data: String) -> usize {
+pub fn p2(data: String) -> usize {
     let mut result = 0;
 
     for (i, char) in data.chars().enumerate() {
@@ -30,4 +32,11 @@ pub fn part_two(data: String) -> usize {
     }
 
     0
+}
+
+#[test]
+fn test_d1() {
+    let data = get_data(1);
+    assert_eq!(p1(data.clone()), 280);
+    assert_eq!(p2(data), 1797);
 }
