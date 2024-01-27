@@ -1,19 +1,21 @@
-use std::{fs::File, io::Read};
 
+use std::{fs::File, io::Read};
+pub mod day8;
 pub mod day6;
 pub mod day5;
 pub mod day4;
 pub mod day3;
 pub mod day2;
 pub mod day1;
+pub mod day7;
 
 #[macro_export]
 macro_rules! timeit {
-    ($i:literal $x:stmt) => {
+    ($i: ident) => {
         let now = Instant::now();
-        $x
+        let res = $i(data.clone());
         let dur = now.elapsed();
-        println!("{}: {:?}", $i, dur);
+        dur
     }
 }
 
