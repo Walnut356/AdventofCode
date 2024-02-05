@@ -88,31 +88,11 @@ pub fn p2(data: String) -> isize {
     let eef: Map<String, Value> = serde_json::from_str(&data).unwrap();
 
     handle_struct(eef) as isize
-
-    // let mut temp = 0;
-    // for (_k, v) in eef {
-    //     match v {
-    //         Value::Null => todo!(),
-    //         Value::Bool(_) => todo!(),
-    //         Value::Number(x) => temp += x.as_i64().unwrap(),
-    //         Value::String(x) => if x == "red" {
-    //             result = 0;
-    //             break;
-    //         },
-    //         Value::Array(x) => temp += handle_array(x),
-    //         Value::Object(x) => temp += handle_struct(x),
-    //     }
-
-    //     result += temp;
-    //     temp = 0;
-    // }
-
-    // result as isize
 }
 
 #[test]
 fn test_d12() {
     let data = get_data(12);
-    assert_eq!(p1(data.clone()), 0);
-    assert_eq!(p2(data), 0);
+    assert_eq!(p1(data.clone()), 119433);
+    assert_eq!(p2(data), 68466);
 }
