@@ -22,7 +22,6 @@ fn valid(val: &str) -> bool {
             sequ = true;
         }
 
-        // TODO do these have an exploitable bit pattern?
         if [b'i', b'o', b'l'].contains(&bytes[i]) {
             return false;
         }
@@ -84,5 +83,5 @@ pub fn p2(data: String) -> String {
 fn test_d11() {
     let data = get_data(11);
     assert_eq!(p1(data.clone()), "vzbxxyzz");
-    assert_eq!(p2(data), "");
+    assert_eq!(p2(data), "vzcaabcc");
 }
