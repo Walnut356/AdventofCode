@@ -1,9 +1,9 @@
 use std::time::Instant;
 
 use aoc2015::*;
-use day8::*;
+use day11::*;
 
-const DAY:u8 = 8;
+const DAY:u8 = 11;
 
 fn main() {
     let data = get_data(DAY);
