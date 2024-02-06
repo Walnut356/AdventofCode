@@ -18,7 +18,7 @@ fn arrange(person: &str, map: &Map, placed: Set, first: &str) -> isize {
 
     let binding: Set = map.keys().copied().collect();
     let remaining = binding.difference(&set).collect::<Vec<_>>();
-    if remaining.len() == 0 {
+    if remaining.is_empty() {
         return *map.get(person).unwrap().get(first).unwrap() + *map.get(first).unwrap().get(person).unwrap();
     }
 
