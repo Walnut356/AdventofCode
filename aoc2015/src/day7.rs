@@ -83,7 +83,7 @@ pub fn p1(data: String) -> usize {
 
         let lhs = inst.lhs.parse().ok().or_else(|| wires.get(inst.lhs).copied());
         let rhs =  inst.rhs.parse().ok().or_else(|| wires.get(inst.rhs).copied());
-        if lhs.is_some()  && (inst.op == 'N' || inst.op == 'W') {
+        if lhs.is_some() && (inst.op == 'N' || inst.op == 'W') {
             wires.insert(inst.to, inst.execute(lhs.unwrap(), 0));
             ops.swap_remove(i);
         } else if lhs.is_some() && rhs.is_some() {

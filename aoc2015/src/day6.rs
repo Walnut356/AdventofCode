@@ -21,8 +21,6 @@ impl Coord {
 
 
 pub fn p1(data: String) -> usize {
-    let mut result = 0;
-
     let bit_array = Box::new([0u8; 125 * 1000]); // 1000 x 1000 bit grid
 
     for line in data.lines() {
@@ -98,8 +96,6 @@ pub fn p1(data: String) -> usize {
 }
 
 pub fn p2(data: String) -> usize {
-    let mut result = 0;
-
     let mut lights: Vec<usize> = vec![0; 1000 * 1000];
 
         for line in data.lines() {

@@ -34,7 +34,6 @@ fn arrange(person: &str, map: &Map, placed: Set, first: &str) -> isize {
 }
 
 pub fn p1(data: String) -> isize {
-    let mut result = 0;
 
     let mut map: Map = FxHashMap::default();
     let mut person = "";
@@ -66,7 +65,6 @@ pub fn p1(data: String) -> isize {
 }
 
 pub fn p2(data: String) -> isize {
-    let mut result = 0;
 
     let mut map: Map = FxHashMap::default();
     let mut person = "";
@@ -93,7 +91,7 @@ pub fn p2(data: String) -> isize {
         map.get_mut(person).unwrap().insert(val, amount * feeling);
     }
 
-    for (k, v) in map.iter_mut() {
+    for (_k, v) in map.iter_mut() {
         v.insert("me", 0);
     }
 

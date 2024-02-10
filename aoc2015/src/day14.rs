@@ -9,14 +9,13 @@ pub fn p1(data: String) -> isize {
     let mut result = 0;
 
     for line in data.lines() {
-        let mut tokens = line.split_ascii_whitespace().collect::<Vec<_>>();
+        let tokens = line.split_ascii_whitespace().collect::<Vec<_>>();
 
         let spd = tokens[3].parse::<isize>().unwrap();
         let dur = tokens[6].parse::<isize>().unwrap();
         let rest = tokens[tokens.len() - 2].parse::<isize>().unwrap();
 
-        let mut dist = 0;
-        let mut time = 2503;
+        let time = 2503;
 
         // the commented out code is the same speed with numbers this low, but the compiler isn't
         // quite smart enough to turn it into the constant time formula i have below.
@@ -40,7 +39,7 @@ pub fn p1(data: String) -> isize {
             over * spd
         };
 
-        dist = extra + (temp * spd * dur);
+        let dist = extra + (temp * spd * dur);
 
         result = result.max(dist);
     }
@@ -50,8 +49,6 @@ pub fn p1(data: String) -> isize {
 }
 
 pub fn p2(data: String) -> usize {
-    let result = 0;
-
     let mut stats = Vec::new();
     for line in data.lines() {
         let tokens = line.split_ascii_whitespace().collect::<Vec<_>>();

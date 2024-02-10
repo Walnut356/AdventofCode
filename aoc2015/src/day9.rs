@@ -8,10 +8,7 @@ use itertools::{Itertools, Permutations};
 
 // sanity
 type Map<'a> = FxHashMap<&'a str, FxHashMap<&'a str, usize>>;
-type Set<'a> = FxHashSet<&'a str>;
-type Cache<'a> = FxHashMap<(&'a str, Set<'a>, usize), usize>;
 
-const NODE_COUNT: usize = 8;
 
 pub fn p1(data: String) -> usize {
     let mut map: Map = FxHashMap::default();

@@ -61,7 +61,7 @@ fn handle_value(v: Value) -> i64 {
 
 fn handle_struct(map: Map<String, Value>) -> i64 {
     let mut temp = 0;
-    for (k, v) in map {
+    for (_k, v) in map {
         match v {
             Value::Number(x) => temp += x.as_i64().unwrap(),
             Value::String(x) => {
@@ -83,7 +83,6 @@ fn handle_struct(map: Map<String, Value>) -> i64 {
 }
 
 pub fn p2(data: String) -> isize {
-    let mut result = 0;
 
     let eef: Map<String, Value> = serde_json::from_str(&data).unwrap();
 
