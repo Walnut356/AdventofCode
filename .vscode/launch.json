@@ -27,6 +27,9 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug executable 'aoc2015'",
+            "sourceLanguages": [
+                "rust"
+            ],
             "cargo": {
                 "args": [
                     "build",
