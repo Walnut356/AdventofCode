@@ -6,15 +6,6 @@ use crate::get_data;
 
 type Lights = [[u8; 100]; 100];
 
-fn print_thing(l: &Lights) {
-    let mut lock = std::io::stdout().lock();
-
-    let _ = lock.write_all(b"Lights:\n");
-    for inner in l {
-        let _ = lock.write_all(format!("{:?}\n", inner).as_bytes());
-    }
-}
-
 fn tick(lights: &mut Lights) {
     // print_thing(lights);
     let mut result = *lights;
@@ -63,7 +54,7 @@ pub fn p1(data: String) -> usize {
         }
     }
 
-    for i in 0..100 {
+    for _ in 0..100 {
         tick(&mut lights)
     }
 
@@ -125,7 +116,7 @@ pub fn p2(data: String) -> usize {
     lights[0][99] = 1;
     lights[99][0] = 1;
     lights[99][99] = 1;
-    for i in 0..100 {
+    for _ in 0..100 {
         tick_p2(&mut lights)
     }
 
@@ -136,5 +127,5 @@ pub fn p2(data: String) -> usize {
 fn test_d18() {
     let data = get_data(18);
     assert_eq!(p1(data.clone()), 814);
-    assert_eq!(p2(data), 0);
+    assert_eq!(p2(data), 924);
 }

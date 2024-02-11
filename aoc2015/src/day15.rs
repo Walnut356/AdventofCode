@@ -192,6 +192,6 @@ pub fn p2(data: String) -> isize {
 #[test]
 fn test_d15() {
     let data = get_data(15);
-    assert_eq!(p1(data.clone()), 0);
-    assert_eq!(p2(data), 0);
+    assert_eq!(p1(data.clone()), 222870);
+    assert_eq!(p2(data), 117936);
 }
