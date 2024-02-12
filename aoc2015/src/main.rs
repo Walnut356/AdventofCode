@@ -2,12 +2,11 @@ use std::time::Instant;
 
 use aoc2015::*;
 
-day! {23}
+day! {17}
 
 fn main() {
     let data = get_data(DAY);
 
-    
     let data2 = data.clone();
 
     let now = Instant::now();
