@@ -69,7 +69,7 @@ pub fn steps(
     for (k, i, _) in max_map {
         let temp = current.replacen(map[k][*i], k, 1);
         if temp != current {
-            let result = steps(map, max_map, temp, step + 1,);
+            let result = steps(map, max_map, temp, step + 1);
             if result != usize::MAX {
                 return result;
             }
@@ -80,7 +80,6 @@ pub fn steps(
 }
 
 pub fn p2(data: String) -> usize {
-    let mut result = 0;
     let mut haystack = "";
 
     let mut trans_map: Map<&str, Vec<&str>> = Map::default();
@@ -116,19 +115,16 @@ pub fn p2(data: String) -> usize {
     }
 
     // i tried greedy and it was taking millions of iterations and some unknown length of time.
-    // the first time i used rng it finished in 2ms. Seems about 50/50 that it finishes instantly
-    // or takes "forever". I ended up testing a few seeds to get a "consistent" result. I'm not
-    // happy about it but oh well.
+    // the first time i used rng it finished in 4ms. Seems about 50/50 that it finishes instantly
+    // or takes "forever". Here's a seed that finishes in less than 2ms. I'm not happy about this
+    // solution but hey, it works 
 
     // let mut seed = thread_rng().gen::<u64>();
     // dbg!(seed);
     let mut val = StdRng::seed_from_u64(1623496077747855719);
     max_map.shuffle(&mut val);
 
-
-    let result = steps(&trans_map, &max_map, haystack.to_owned(), 0);
-
-    result
+    steps(&trans_map, &max_map, haystack.to_owned(), 0)
 }
 
 #[test]
