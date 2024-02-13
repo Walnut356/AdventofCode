@@ -39,14 +39,12 @@ pub fn p1(data: String) -> usize {
 }
 
 pub fn p2(data: String) -> usize {
-    let mut result = 0;
-
-    result
+    0
 }
 
 #[test]
 fn test_d25() {
     let data = get_data(25);
-    assert_eq!(p1(data.clone()), 0);
+    assert_eq!(p1(data.clone()), 19980801);
     assert_eq!(p2(data), 0);
 }

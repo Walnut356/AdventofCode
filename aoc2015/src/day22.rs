@@ -452,6 +452,6 @@ pub fn p2(data: String) -> i32 {
 #[test]
 fn test_d22() {
     let data = get_data(22);
-    assert_eq!(p1(data.clone()), 0);
-    assert_eq!(p2(data), 0);
+    assert_eq!(p1(data.clone()), 1824);
+    assert_eq!(p2(data), 1937);
 }
