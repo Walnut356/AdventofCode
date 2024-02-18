@@ -5,8 +5,12 @@
 
 void run_part(u64 (*fn)(FILE*)) {
     FILE* file;
-    fopen_s(&file, "G:/coding/My Projects/Learning/AdventofCode/aoc/aoc2016/test_data/day1.txt",
+    int code = fopen_s(&file, "./aoc2016/test_data/day1.txt",
             "r");
+
+    if (code != 0) {
+        return;
+    }
 
     double now = time_now();
 
@@ -17,6 +21,6 @@ void run_part(u64 (*fn)(FILE*)) {
 }
 
 int main() {
-    run_part(d1p1);
-    run_part(d1p2);
+    run_part(p1);
+    run_part(p2);
 }

@@ -7,7 +7,7 @@ typedef enum Dir {
     LEFT = 3,
 } Dir;
 
-u64 d1p1(FILE* file) {
+u64 p1(FILE* file) {
     char dir;
     u32 steps = 0;
     Dir orient = UP;
@@ -48,7 +48,7 @@ u64 d1p1(FILE* file) {
     return abs(x) + abs(y);
 }
 
-u64 d1p2(FILE* file) {
+u64 p2(FILE* file) {
     char dir;
     u32 steps = 0;
     Dir orient = UP;
