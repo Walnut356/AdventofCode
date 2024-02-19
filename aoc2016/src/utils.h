@@ -36,7 +36,7 @@ double time_now() {
     return ((double) time / (double) freq) * 1000000000;
 }
 
-void print_result(u64 result, double t) {
+void print_result(u64 result, double t, u8 day, u8 part) {
     char* unit;
     double time;
     if (t > 1000000000) { // s
@@ -53,7 +53,7 @@ void print_result(u64 result, double t) {
         unit = "ns";
     }
 
-    printf("| | %llu | %lf%s |\n", result, time, unit);
+    printf("| %d-%d | %llu | %lf%s |\n", day, part, result, time, unit);
 }
 
 // warning, mega jank ahead
@@ -86,6 +86,7 @@ void grow_vec(Vec* v) {
 
 void free_vec(Vec* v) {
     free(v->data);
+    // v->data = NULL;
 }
 
 void push(Vec* v, void* item, u64 size) {

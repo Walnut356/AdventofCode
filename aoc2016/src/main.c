@@ -1,14 +1,18 @@
-#include "day1.h"
+#include "day2.h"
 #include "utils.h"
 #include <stdio.h>
-#include <time.h>
 
-void run_part(u64 (*fn)(FILE*)) {
+const u8 day = 2;
+
+void run_part(u64 (*fn)(FILE*), u8 part) {
     FILE* file;
-    int code = fopen_s(&file, "./aoc2016/test_data/day1.txt",
-            "r");
+    // easiest way to get the correct size
+    char path[34];
+    sprintf(path, "../aoc2016/test_data/day%d.txt", day);
+    int code = fopen_s(&file, path, "r");
 
     if (code != 0) {
+        printf("Can't open file. Error code: %d\n", code);
         return;
     }
 
@@ -17,10 +21,14 @@ void run_part(u64 (*fn)(FILE*)) {
     u64 result = fn(file);
 
     double dur = time_now();
-    print_result(result, dur - now);
+    print_result(result, dur - now, day, part);
+
+    // I know this isn't strictly speaking necessary for something so small, but I figure I may as
+    // well get in the habit
+    fclose(file);
 }
 
 int main() {
-    run_part(p1);
-    run_part(p2);
+    run_part(p1, 1);
+    run_part(p2, 2);
 }

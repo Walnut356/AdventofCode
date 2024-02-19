@@ -45,6 +45,7 @@ u64 p1(FILE* file) {
         fgetc(file);
         fgetc(file);
     }
+
     return abs(x) + abs(y);
 }
 
@@ -96,6 +97,8 @@ u64 p2(FILE* file) {
 
 
             if (contains(&points, &point, sizeof(i32) * 2)) {
+                free_vec(&points);
+
                 return abs(x) + abs(y);
             }
 
@@ -108,5 +111,4 @@ u64 p2(FILE* file) {
         fgetc(file);
         fgetc(file);
     }
-
 }

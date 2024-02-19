@@ -56,6 +56,7 @@
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
-  "makefile.makefilePath": "G:/Coding/My Projects/Learning/AdventofCode/aoc/aoc2016/Makefile",
-  "makefile.makePath": "mingw32-make.exe"
+  "makefile.makefilePath": "",
+  "makefile.makePath": "mingw32-make.exe",
+  "cmake.sourceDirectory": "G:/coding/My Projects/Learning/AdventofCode/aoc/aoc2016"
 }
