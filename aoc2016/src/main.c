@@ -1,19 +1,23 @@
-#include "day3.h"
+#include "day4.h"
 #include "utils.h"
 #include <stdio.h>
 
-const u8 day = 3;
+const u8 day = 4;
 
 void run_part(u64 (*fn)(FILE*), u8 part) {
     FILE* file;
     // easiest way to get the correct size
-    char path[34];
+    char path[37] = {0};
     sprintf(path, "../aoc2016/test_data/day%d.txt", day);
     int code = fopen_s(&file, path, "r");
 
     if (code != 0) {
-        printf("Can't open file. Error code: %d\n", code);
-        return;
+        sprintf(path, "../../aoc2016/test_data/day%d.txt", day);
+        int code = fopen_s(&file, path, "r");
+        if (code != 0) {
+            printf("Can't open file. Error code: %d\n", code);
+            return;
+        }
     }
 
     double now = time_now();
