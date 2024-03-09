@@ -56,6 +56,50 @@ void print_result(u64 result, double t, u8 day, u8 part) {
     printf("| %d-%d | %llu | %lf%s |\n", day, part, result, time, unit);
 }
 
+u32 array_max(u32* array, u32 len) {
+    u32 max = 0;
+    for (int i = 0; i < len; ++i) {
+        max = array[i] > max ? array[i] : max;
+    }
+
+    return max;
+}
+
+u32 array_max_idx(u32* array, u32 len) {
+    u32 max = 0;
+    u32 idx = 0;
+    for (int i = 0; i < len; ++i) {
+        if (array[i] > max) {
+            max = array[i];
+            idx = i;
+        }
+    }
+
+    return idx;
+}
+
+u32 array_min(u32* array, u32 len) {
+    u32 min = 0;
+    for (int i = 0; i < len; ++i) {
+        min = array[i] < min ? array[i] : min;
+    }
+
+    return min;
+}
+
+u32 array_min_idx(u32* array, u32 len) {
+    u32 min = 4294967295;
+    u32 idx = 0;
+    for (int i = 0; i < len; ++i) {
+        if (array[i] < min) {
+            min = array[i];
+            idx = i;
+        }
+    }
+
+    return idx;
+}
+
 // warning, mega jank ahead
 /*
 in short, i don't really know how this is "supposed" to be done, i'm just yoloing implementations
