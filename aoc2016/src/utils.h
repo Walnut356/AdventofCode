@@ -25,6 +25,22 @@ typedef int32_t i32;
 typedef uint64_t u64;
 typedef int64_t i64;
 
+const u8 u8_MAX = UCHAR_MAX;
+const i8 i8_MAX = CHAR_MAX;
+const i8 i8_MIN = CHAR_MIN;
+
+const u16 u16_MAX = USHRT_MAX;
+const i16 i16_MAX = SHRT_MAX;
+const i16 i16_MIN = SHRT_MIN;
+
+const u32 u32_MAX = UINT_MAX;
+const i32 i32_MAX = INT_MAX;
+const i32 i32_MIN = INT_MIN;
+
+const u64 u64_MAX = ULONG_MAX;
+const i64 i64_MAX = LONG_MAX;
+const i64 i64_MIN = LONG_MIN;
+
 typedef float f32;
 typedef double f64;
 
@@ -39,21 +55,26 @@ double time_now() {
 void print_result(u64 result, double t, u8 day, u8 part) {
     char* unit;
     double time;
+    char t_str[30];
     if (t > 1000000000) { // s
         time = t / (1000 * 1000 * 1000);
+        sprintf_s(t_str, 30, "%.03f", time);
         unit = "s";
     } else if (t > 1000000) { // ms
         time = t / (1000 * 1000);
+        sprintf_s(t_str, 30, "%.4lf", time);
         unit = "ms";
     } else if (t > 1000) {
         time = t / 1000;
+        sprintf_s(t_str, 30, "%.1lf", time);
         unit = "us";
     } else {
         time = t;
+        sprintf_s(t_str, 30, "%.0lf", time);
         unit = "ns";
     }
 
-    printf("| %d-%d | %llu | %lf%s |\n", day, part, result, time, unit);
+    printf("| %d-%d | %llu | %s%s |\n", day, part, result, t_str, unit);
 }
 
 u32 array_max(u32* array, u32 len) {
@@ -106,9 +127,9 @@ in short, i don't really know how this is "supposed" to be done, i'm just yoloin
 based on what i've used before in rust and c++.
 */
 typedef struct Vec {
+    u8* data;
     u64 len;
     u64 capacity;
-    u8* data;
 } Vec;
 
 Vec get_vec(u64 element_size) {
@@ -159,6 +180,7 @@ void print_vec(Vec* v) {
     printf("%d]\n", v->data[v->len - 1]);
 }
 
+/// Look by element
 bool contains(Vec* v, void* n, u64 size) {
     for (int i = 0; i < v->len; i += size) {
         if (memcmp(&v->data[i], n, size) == 0) {
@@ -167,4 +189,39 @@ bool contains(Vec* v, void* n, u64 size) {
     }
 
     return false;
+}
+
+/// Look by windows
+bool contains_bytes(Vec* v, void* n, u64 size) {
+    for (int i = 0; i < v->len; i++) {
+        if (memcmp(&v->data[i], n, size) == 0) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/// Fills the given buffer with all the characters up to (but not including) '\n' or EOF. Also skips
+/// empty lines. Returns false if buffer is not valid (EOF or read error)
+bool get_line(FILE* f, Vec* buf) {
+    char val = fgetc(f);
+    while (feof(f) == 0 && (val == '\n' || val == '\r')) {
+        val = fgetc(f);
+    }
+
+    if (feof(f) != 0) {
+        return false;
+    }
+
+    buf->len = 0;
+
+    while (feof(f) == 0 && val != '\n') {
+        if (val != '\r') {
+            push(buf, &val, 1);
+        }
+        val = fgetc(f);
+    }
+
+    return true;
 }
