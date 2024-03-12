@@ -172,6 +172,17 @@ void pop(Vec* v, void* dest, u64 size) {
     v->len -= size;
 }
 
+/// Sets the byte just after the end of v->data to null to allow for use in null-terminated string
+/// functions. This implementation is a push followed by decrementing the length this means that
+///
+/// 1. the null byte does not affect Vec functions
+/// 2. if v->len == v->capacity, the buffer will reallocate to prevent buffer overruns.
+void as_cstr(Vec* v) {
+    u8 n = 0;
+    push(v, &n, 1);
+    v->len -= 1;
+}
+
 void print_vec(Vec* v) {
     printf("[");
     for (int i = 0; i < v->len - 1; ++i) {
@@ -200,6 +211,10 @@ bool contains_bytes(Vec* v, void* n, u64 size) {
     }
 
     return false;
+}
+
+bool starts_with_bytes(Vec* v, void* n, u64 size) {
+    return memcmp(v->data, n, size) == 0;
 }
 
 /// Fills the given buffer with all the characters up to (but not including) '\n' or EOF. Also skips
