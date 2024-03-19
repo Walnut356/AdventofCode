@@ -165,7 +165,7 @@ void push(Vec* v, void* item, u64 size) {
 }
 
 void pop(Vec* v, void* dest, u64 size) {
-    for (int i = 0; i < size; ++i) {
+    for (int i = 1; i < (size + 1); ++i) {
         // this copies the bytes backwards
         ((u8*) dest)[size - i] = v->data[v->len - i];
     }
