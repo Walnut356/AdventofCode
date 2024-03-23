@@ -172,6 +172,18 @@ void pop(Vec* v, void* dest, u64 size) {
     v->len -= size;
 }
 
+void* get_elmt(Vec* v, u64 idx, u64 size) {
+    return &v->data[idx * size];
+}
+
+void* last_elmt(Vec* v, u64 size) {
+    return &v->data[v->len - size];
+}
+
+u64 len(Vec* v, u64 size) {
+    return v->len / size;
+}
+
 /// Sets the byte just after the end of v->data to null to allow for use in null-terminated string
 /// functions. This implementation is a push followed by decrementing the length this means that
 ///
@@ -215,6 +227,10 @@ bool contains_bytes(Vec* v, void* n, u64 size) {
 
 bool starts_with_bytes(Vec* v, void* n, u64 size) {
     return memcmp(v->data, n, size) == 0;
+}
+
+bool vec_eq(Vec* v1, Vec* v2) {
+    return v1->len == v2->len && memcmp(v1->data, v2->data, v1->len) == 0;
 }
 
 /// Fills the given buffer with all the characters up to (but not including) '\n' or EOF. Also skips
