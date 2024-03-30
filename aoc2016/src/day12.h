@@ -1,6 +1,4 @@
 #include "utils.h"
-#include <minwindef.h>
-#include <string.h>
 
 typedef enum OpCode {
     // Copy Register to Register

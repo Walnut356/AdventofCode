@@ -24,5 +24,7 @@
 |      |             |            |
 | 12-1 | 318009      | 4.7728ms   |
 | 12-2 | 9227663     | 271.3706ms |
+| 13-1 | 92          | 1.2116ms   |
+| 13-2 | 124         | 322.8us    |
 
 \* 4-2 code output all possible values, which were then manually inspected. The instructions aren't entirely clear what the goal is, so it had to be done by hand

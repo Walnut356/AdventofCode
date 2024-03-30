@@ -1,10 +1,10 @@
-#include "day12.h"
+#include "day13.h"
 #include "utils.h"
 #include <stdio.h>
 
-const u8 day = 12;
+const u8 day = 13;
 
-void run_part(i64 (*fn)(FILE*), u8 part) {
+void run_part(u64 (*fn)(FILE*), u8 part) {
     FILE* file;
     // easiest way to get the correct size
     char path[37] = {0};
