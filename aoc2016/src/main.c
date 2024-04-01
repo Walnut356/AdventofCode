@@ -1,8 +1,8 @@
-#include "day13.h"
+#include "day15.h"
 #include "utils.h"
 #include <stdio.h>
 
-const u8 day = 13;
+const u8 day = 15;
 
 void run_part(u64 (*fn)(FILE*), u8 part) {
     FILE* file;
