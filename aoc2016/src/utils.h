@@ -11,6 +11,7 @@
 
 #include "map.h"
 #include "vec.h"
+#include "iter.h"
 #include <profileapi.h>
 #include <stdbool.h>
 #include <string.h>
@@ -52,6 +53,11 @@ void print_result(u64 result, double t, u8 day, u8 part) {
 /// Fills the given buffer with all the characters up to (but not including) '\n' or EOF. Also skips
 /// empty lines. Returns false if buffer is not valid (EOF or read error)
 bool get_line(FILE* f, Vec* buf) {
+    // long pos = ftell(f);
+    // fseek(f, 0, SEEK_END);
+    // long f_len = ftell(f);
+    // fseek(f, pos, SEEK_SET);
+
     char val = fgetc(f);
     while (feof(f) == 0 && (val == '\n' || val == '\r')) {
         val = fgetc(f);

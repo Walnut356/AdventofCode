@@ -44,6 +44,14 @@ void push(Vec* v, void* item, u64 size) {
     v->len += size;
 }
 
+void push_byte(Vec* v, u8 val) {
+    if (v->len + 1 >= v->capacity) {
+        grow_vec(v);
+    }
+    v->data[v->len] = val;
+    v->len += 1;
+}
+
 void pop(Vec* v, void* dest, u64 size) {
     for (int i = 1; i < (size + 1); ++i) {
         // this copies the bytes backwards
@@ -115,4 +123,13 @@ bool starts_with_bytes(Vec* v, void* n, u64 size) {
 
 bool vec_eq(Vec* v1, Vec* v2) {
     return v1->len == v2->len && memcmp(v1->data, v2->data, v1->len) == 0;
+}
+
+void append_vec(Vec* v1, Vec* v2) {
+    while (v1->capacity < v1->len + v2->len) {
+        grow_vec(v1);
+    }
+
+    memcpy(&v1->data[v1->len], &v2->data[0], v2->len);
+    v1->len += v2->len;
 }
