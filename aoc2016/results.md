@@ -38,5 +38,7 @@
 | 18-2 | 19995121          | 199.0066ms |
 | 19-1 | 1834471           | 400.1025ms |
 | 19-2 | 1420064           | 36.7us     |
+| 20-1 | 31053880          | 1.0409ms   |
+| 20-2 | 117               | 980.7us    |
 
 \* 4-2 code output all possible values, which were then manually inspected. The instructions aren't entirely clear what the goal is, so it had to be done by hand
