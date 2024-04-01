@@ -16,6 +16,10 @@ Vec get_vec(u64 element_size) {
     return (Vec){ .len = 0, .capacity = 8 * element_size, .data = (u8*) malloc(element_size * 8) };
 }
 
+Vec with_capacity(u64 capacity, u64 element_size) {
+    return (Vec){ .len = 0, .capacity = capacity * element_size, .data = (u8*) malloc(element_size * capacity) };
+}
+
 void grow_vec(Vec* v) {
     u64 old_len = v->len;
     u64 old_capacity = v->capacity;

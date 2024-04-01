@@ -32,6 +32,9 @@
 | 15-2 | 2080951           | 895.7us    |
 | 16-1 | 10101001010100001 | 950.8us    |
 | 16-2 | 10100001110101001 | 91.5721ms  |
-
+|      |                   |            |
+|      |                   |            |
+| 18-1 | 1956              | 68.3us     |
+| 18-2 | 19995121          | 199.0066ms |
 
 \* 4-2 code output all possible values, which were then manually inspected. The instructions aren't entirely clear what the goal is, so it had to be done by hand
