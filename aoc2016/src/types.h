@@ -25,9 +25,9 @@ const u32 u32_MAX = UINT_MAX;
 const i32 i32_MAX = INT_MAX;
 const i32 i32_MIN = INT_MIN;
 
-const u64 u64_MAX = ULONG_MAX;
-const i64 i64_MAX = LONG_MAX;
-const i64 i64_MIN = LONG_MIN;
+const u64 u64_MAX = ULLONG_MAX;
+const i64 i64_MAX = LLONG_MAX;
+const i64 i64_MIN = LLONG_MIN;
 
 typedef float f32;
 typedef double f64;
