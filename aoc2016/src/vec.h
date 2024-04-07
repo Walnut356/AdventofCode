@@ -137,3 +137,10 @@ void append_vec(Vec* v1, Vec* v2) {
     memcpy(&v1->data[v1->len], &v2->data[0], v2->len);
     v1->len += v2->len;
 }
+
+void swap_remove(Vec* vec, u64 idx, u64 size) {
+    void* swap_dest = get_elmt(vec, idx, size);
+    void* last = last_elmt(vec, size);
+    memcpy(swap_dest, last, size);
+    pop_delete(vec, size);
+}
