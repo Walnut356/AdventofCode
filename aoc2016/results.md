@@ -20,8 +20,8 @@
 | 9-2  | 10915059201       | 206.2us    |
 | 10-1 | 141               | 1.2044ms   |
 | 10-2 | 1209              | 835.2us    |
-| 11-1 | 47 | 100ns |
-| 11-2 | 71 | 187.702s |
+| 11-1 | 47                | 100ns      |
+| 11-2 | 71                | 187.702s   |
 | 12-1 | 318009            | 4.7728ms   |
 | 12-2 | 9227663           | 271.3706ms |
 | 13-1 | 92                | 1.2116ms   |
@@ -48,6 +48,7 @@
 | 23-2 | 479009214         | 20.742s    |
 | 24-1 | 460               | 1.9569ms   |
 | 24-2 | 668               | 1.9819ms   |
+| 25-1 | 198               | 20.8315ms  |
 
 \* 4-2 code output all possible values, which were then manually inspected. The instructions aren't entirely clear what the goal is, so it had to be done by hand
 \* 22-2 solved by hand after printing maze
