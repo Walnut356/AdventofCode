@@ -21,16 +21,18 @@ Vec with_capacity(u64 capacity, u64 element_size) {
 }
 
 void grow_vec(Vec* v) {
-    u64 old_len = v->len;
-    u64 old_capacity = v->capacity;
-    u8* new_data = (u8*) malloc(old_capacity * 2);
-    for (int i = 0; i < old_len; ++i) {
-        new_data[i] = v->data[i];
-    }
-    u8* old_data = v->data;
-    v->data = new_data;
+    // u64 old_len = v->len;
+    // u64 old_capacity = v->capacity;
+    // u8* new_data = (u8*) malloc(old_capacity * 2);
+    // for (int i = 0; i < old_len; ++i) {
+    //     new_data[i] = v->data[i];
+    // }
+    // u8* old_data = v->data;
+    // v->data = new_data;
+    // v->capacity *= 2;
+    // free(old_data);
+    v->data = realloc(v->data, v->capacity * 2);
     v->capacity *= 2;
-    free(old_data);
 }
 
 void free_vec(Vec* v) {
@@ -69,6 +71,10 @@ void pop_delete(Vec* v, u64 size) {
 }
 
 void* get_elmt(Vec* v, u64 idx, u64 size) {
+    if ((idx * size) > v->len) {
+        printf("accessing vec out of bounds. Idx: %llu, size: %llu, (%llu) vec_len: %llu\n", idx,
+               size, size * idx, v->len);
+    }
     return &v->data[idx * size];
 }
 
@@ -143,4 +149,9 @@ void swap_remove(Vec* vec, u64 idx, u64 size) {
     void* last = last_elmt(vec, size);
     memcpy(swap_dest, last, size);
     pop_delete(vec, size);
+}
+
+void remove_start(Vec* vec, u64 size) {
+    memmove(vec->data, &vec->data[size], vec->len - size);
+    vec->len -= size;
 }
