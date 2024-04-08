@@ -42,11 +42,12 @@
 | 20-2 | 117               | 980.7us    |
 | 21-1 | baecdfgh          | 391.2us    |
 | 21-2 | cegdahbf          | 3.559s     |
-|      |                   |            |
-|      |                   |            |
+| 22-1 | 910               | 9.0672ms   |
+| 22-2 | 222*              | 63.8536ms  |
 | 23-1 | 12654             | 510.2us    |
 | 23-2 | 479009214         | 20.742s    |
 | 24-1 | 460               | 1.9569ms   |
 | 24-2 | 668               | 1.9819ms   |
 
 \* 4-2 code output all possible values, which were then manually inspected. The instructions aren't entirely clear what the goal is, so it had to be done by hand
+\* 22-2 solved by hand after printing maze
