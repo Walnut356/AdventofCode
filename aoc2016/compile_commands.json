@@ -1,0 +1,14 @@
+[
+{
+  "directory": "G:/Coding/My Projects/Learning/AdventofCode/aoc/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\aoc.dir\\src\\main.c.obj -c \"G:\\Coding\\My Projects\\Learning\\AdventofCode\\aoc\\aoc2016\\src\\main.c\"",
+  "file": "G:/Coding/My Projects/Learning/AdventofCode/aoc/aoc2016/src/main.c",
+  "output": "CMakeFiles/aoc.dir/src/main.c.obj"
+},
+{
+  "directory": "G:/Coding/My Projects/Learning/AdventofCode/aoc/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\aoc.dir\\src\\md5.c.obj -c \"G:\\Coding\\My Projects\\Learning\\AdventofCode\\aoc\\aoc2016\\src\\md5.c\"",
+  "file": "G:/Coding/My Projects/Learning/AdventofCode/aoc/aoc2016/src/md5.c",
+  "output": "CMakeFiles/aoc.dir/src/md5.c.obj"
+}
+]
