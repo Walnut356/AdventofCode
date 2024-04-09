@@ -51,6 +51,27 @@
       "cwd": "${workspaceFolder}"
     },
     {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'aoc2017'",
+      "sourceLanguages": [
+        "rust"
+      ],
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=aoc2017",
+          "--package=aoc2017"
+        ],
+        "filter": {
+          "name": "aoc2017",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
       "name": "Debug 2016",
       "type": "cppdbg",
       "request": "launch",

@@ -1,5 +1,8 @@
+
+
 use std::{fs::File, io::Read};
 
+pub mod utils;
 pub mod day25;
 pub mod day24;
 pub mod day23;
@@ -223,7 +226,7 @@ pub fn get_file(path: &str) -> File {
         Ok(f) => f,
         Err(_) => match File::open(format!("../{path}")) {
             Ok(f) => f,
-            Err(_) => File::open(format!("aoc2015/{path}")).unwrap(),
+            Err(_) => File::open(format!("aoc2017/{path}")).unwrap(),
         },
     }
 }
