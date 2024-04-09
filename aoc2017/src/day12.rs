@@ -2,7 +2,6 @@
 
 use crate::get_data;
 
-
 pub fn p1(data: String) -> usize {
     let result = 0;
 
