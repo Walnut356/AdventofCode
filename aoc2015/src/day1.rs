@@ -2,7 +2,7 @@
 
 use crate::get_data;
 
-pub fn p1(data: String) -> isize{
+pub fn p1(data: String) -> isize {
 
     let mut result = 0;
 
