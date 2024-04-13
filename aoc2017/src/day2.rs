@@ -47,6 +47,6 @@ pub fn p2(data: String) -> usize {
 #[test]
 fn test_d2() {
     let data = get_data(2);
-    assert_eq!(p1(data.clone()), 0);
-    assert_eq!(p2(data), 0);
+    assert_eq!(p1(data.clone()), 51833);
+    assert_eq!(p2(data), 288);
 }
