@@ -3,7 +3,7 @@
 use itertools::Itertools;
 
 use crate::get_data;
-use crate::utils::{Set, Map};
+use crate::utils::{Map, Set};
 
 pub fn p1(data: String) -> usize {
     let mut mem = data
@@ -36,10 +36,12 @@ pub fn p1(data: String) -> usize {
 }
 
 pub fn p2(data: String) -> usize {
-    let mut mem:[u32; 16] = data
+    let mut mem: [u32; 16] = data
         .split_ascii_whitespace()
         .map(|x| x.parse::<u32>().unwrap())
-        .collect::<Vec<_>>().try_into().unwrap();
+        .collect::<Vec<_>>()
+        .try_into()
+        .unwrap();
     let mut states: Map<[u32; 16], usize> = Map::default();
     states.insert(mem, 0);
 
