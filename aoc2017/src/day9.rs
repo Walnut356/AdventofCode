@@ -18,7 +18,7 @@ pub fn p1(data: String) -> usize {
             ignore = false;
             continue;
         }
-        if garbage  {
+        if garbage {
             garbage = char != '>';
             continue;
         }
@@ -28,7 +28,7 @@ pub fn p1(data: String) -> usize {
             '{' => {
                 nesting += 1;
                 result += nesting;
-            },
+            }
             '}' => nesting -= 1,
             _ => (),
         }
@@ -38,11 +38,10 @@ pub fn p1(data: String) -> usize {
 }
 
 pub fn p2(data: String) -> usize {
-       let mut result = 0;
+    let mut result = 0;
 
     let mut ignore = false;
     let mut garbage = false;
-    let mut nesting = 0;
 
     for char in data.chars() {
         if char == '!' && !ignore {
@@ -53,20 +52,13 @@ pub fn p2(data: String) -> usize {
             ignore = false;
             continue;
         }
-        if garbage  {
+        if garbage {
             garbage = char != '>';
             result += garbage as usize;
             continue;
         }
 
-        match char {
-            '<' => garbage = true,
-            '{' => {
-                nesting += 1;
-            },
-            '}' => nesting -= 1,
-            _ => (),
-        }
+        garbage = char == '<';
     }
 
     result
