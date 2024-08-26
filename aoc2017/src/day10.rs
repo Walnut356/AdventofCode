@@ -30,6 +30,7 @@ macro_rules! range_array {
 
 // this is so fuckin dumb. ExactSizeIterators, Range objects, and For loops aren't allowed in const
 // functions yet, so there's not really a better way to set up this array at compile time afaik.
+// std::array::from_fn doesn't work in const contexts either
 const fn _init_array() -> [u8; 256] {
     let mut temp = [0; 256];
     let mut i = 0;

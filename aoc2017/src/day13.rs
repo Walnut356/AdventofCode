@@ -1,4 +1,5 @@
 #![allow(unused_imports)]
+#![allow(clippy::needless_range_loop)]
 
 use crate::get_data;
 
@@ -46,8 +47,6 @@ pub fn p2(data: String) -> usize {
             .unwrap();
         walls[idx] = tokens.next().unwrap().parse::<u8>().unwrap();
     });
-
-    let mut result = 0;
 
     // let mut scan_pos = [0u8; 7];
     // println!("{:?}", scan_pos);
