@@ -2,7 +2,7 @@ use std::{ops::Deref, time::Instant};
 
 use aoc2017::*;
 
-day! {14}
+day! {15}
 
 fn main() {
     let data = get_data(DAY);
