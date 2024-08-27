@@ -114,5 +114,5 @@ pub fn p2(data: String) -> usize {
 fn test_d7() {
     let data = get_data(7);
     assert_eq!(p1(data.clone()), "vmpywg");
-    assert_eq!(p2(data), 0);
+    assert_eq!(p2(data), 1674);
 }
