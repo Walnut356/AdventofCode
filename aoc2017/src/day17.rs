@@ -1,17 +1,36 @@
 #![allow(unused_imports)]
 
+use itertools::Itertools;
+
 use crate::get_data;
 
-pub fn p1(data: String) -> usize {
-    let result = 0;
+use std::collections::VecDeque;
 
-    return result;
+pub fn p1(data: String) -> usize {
+    let step: usize = data.parse().unwrap();
+    let mut buf = VecDeque::with_capacity(2018);
+    buf.push_back(0u16);
+
+    for i in 1u16..2018u16 {
+        buf.rotate_left((step + 1) % buf.len());
+        buf.push_front(i);
+    }
+
+    buf[1] as usize
 }
 
 pub fn p2(data: String) -> usize {
-    let result = 0;
+    let step: usize = data.parse().unwrap();
+    let mut buf = VecDeque::with_capacity(2018);
+    buf.push_back(0u32);
 
-    return result;
+    // brute fooooooorce!
+    for i in 1u32..50_000_000 {
+        buf.rotate_left((step + 1) % buf.len());
+        buf.push_front(i);
+    }
+
+    buf[buf.iter().find_position(|x| **x == 0).unwrap().0 + 1] as usize
 }
 
 #[test]
