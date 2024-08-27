@@ -1,5 +1,5 @@
-pub use fxhash::FxHashMap as Map;
-pub use fxhash::FxHashSet as Set;
+pub use ahash::AHashMap as Map;
+pub use ahash::AHashSet as Set;
 use itertools::Itertools;
 
 macro_rules! range_array {

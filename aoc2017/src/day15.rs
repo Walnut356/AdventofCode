@@ -41,7 +41,7 @@ pub fn p2(data: String) -> usize {
     let mut b: usize = lines.next().unwrap().parse().unwrap();
     let mut result = 0;
 
-    for i in 0..5_000_000 {
+    for _ in 0..5_000_000 {
         a = (a * A_FACTOR) % DIV;
         while a % A_MULTIPLE != 0 {
             a = (a * A_FACTOR) % DIV;
