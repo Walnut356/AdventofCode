@@ -41,11 +41,7 @@ enum Direction {
 }
 
 fn find_start(first_line: &[u8]) -> usize {
-    first_line
-        .iter()
-        .find_position(|x| **x == b'|')
-        .unwrap()
-        .0
+    first_line.iter().find_position(|x| **x == b'|').unwrap().0
 }
 
 pub fn p1(data: String) -> String {
@@ -108,7 +104,7 @@ pub fn p1(data: String) -> String {
 
 pub fn p2(data: String) -> usize {
     let map = data.lines().map(|x| x.as_bytes()).collect::<Vec<_>>();
-    let mut result =0;
+    let mut result = 0;
 
     // (x, y)
     let mut pos = (find_start(map[0]), 0);
