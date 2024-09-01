@@ -4,18 +4,15 @@ for i in range(1, 26):
             f"""#![allow(unused_imports)]
 
 use crate::get_data;
+use crate::utils::*;
 
 
 pub fn p1(data: String) -> usize {{
-    let result = 0;
-
-    result
+    0
 }}
 
 pub fn p2(data: String) -> usize {{
-    let result = 0;
-
-    result
+    0
 }}
 
 #[test]
