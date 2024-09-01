@@ -97,13 +97,13 @@ impl std::fmt::Debug for Pattern {
 }
 
 impl Pattern {
-    pub fn start() -> Pattern {
-        Self::Three([
-            [false, true, false],
-            [false, false, true],
-            [true, true, true],
-        ])
-    }
+    // pub fn start() -> Pattern {
+    //     Self::Three([
+    //         [false, true, false],
+    //         [false, false, true],
+    //         [true, true, true],
+    //     ])
+    // }
 
     #[rustfmt::skip]
     pub fn mirror(&self) -> Pattern {
@@ -319,7 +319,7 @@ pub fn p1(data: String) -> usize {
     // println!("{:?}", start.rotate().rotate());
     // println!("{:?}", start.rotate().rotate().rotate());
 
-    for i in 0..5 {
+    for _i in 0..5 {
         enhance(&mut result, &translations);
         // println!("--{i}--");
         // for val in &result {
@@ -360,7 +360,7 @@ pub fn p2(data: String) -> usize {
         }
     }
 
-    for i in 0..18 {
+    for _i in 0..18 {
         enhance(&mut result, &translations);
     }
 
@@ -370,6 +370,6 @@ pub fn p2(data: String) -> usize {
 #[test]
 fn test_d21() {
     let data = get_data(21);
-    assert_eq!(p1(data.clone()), 0);
-    assert_eq!(p2(data), 0);
+    assert_eq!(p1(data.clone()), 197);
+    assert_eq!(p2(data), 3081737);
 }
