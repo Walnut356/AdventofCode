@@ -82,7 +82,7 @@ impl std::fmt::Debug for Pattern {
                     writeln!(f)?
                 }
                 Ok(())
-            },
+            }
             Self::Four(x) => {
                 for val in x {
                     for b in val {
@@ -91,7 +91,7 @@ impl std::fmt::Debug for Pattern {
                     writeln!(f)?
                 }
                 Ok(())
-            },
+            }
         }
     }
 }
