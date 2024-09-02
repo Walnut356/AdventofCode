@@ -2,7 +2,7 @@ use std::time::Instant;
 
 use aoc2017::*;
 
-day! {23}
+day! {24}
 
 fn main() {
     let data = get_data(DAY);
