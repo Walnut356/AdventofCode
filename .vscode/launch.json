@@ -4,35 +4,7 @@
     {
       "type": "lldb",
       "request": "launch",
-      "name": "Launch aoc2016",
-      "program": "${workspaceFolder}/aoc2016/output/main.exe",
-      "args": [],
-      "cwd": "${workspaceFolder}",
-      "preLaunchTask": "build"
-    },
-    {
-      "type": "lldb",
-      "request": "launch",
-      "name": "Debug unit tests in library 'aoc2015'",
-      "cargo": {
-        "args": [
-          "test",
-          "--no-run",
-          "--lib",
-          "--package=aoc2015"
-        ],
-        "filter": {
-          "name": "aoc2015",
-          "kind": "lib"
-        }
-      },
-      "args": [],
-      "cwd": "${workspaceFolder}"
-    },
-    {
-      "type": "lldb",
-      "request": "launch",
-      "name": "Debug executable 'aoc2015'",
+      "name": "Debug 2015",
       "sourceLanguages": [
         "rust"
       ],
@@ -51,9 +23,20 @@
       "cwd": "${workspaceFolder}"
     },
     {
+        "type": "lldb",
+        "request": "launch",
+        "name": "Debug 2016",
+        "program": "${workspaceFolder}/build/aoc2016/aoc2016.exe",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "terminal": "integrated",
+        "sourceLanguages": ["cpp"],
+        "preLaunchTask": "build",
+    },
+    {
       "type": "lldb",
       "request": "launch",
-      "name": "Debug executable 'aoc2017'",
+      "name": "Debug 2017",
       "sourceLanguages": [
         "rust"
       ],
@@ -72,49 +55,15 @@
       "cwd": "${workspaceFolder}"
     },
     {
-      "name": "Debug 2016",
-      "type": "cppdbg",
-      "request": "launch",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": false,
-      "linux": {
-        "MIMode": "gdb",
-        "miDebuggerPath": "gdb",
-        "program": "${workspaceFolder}/output/main"
-      },
-      "osx": {
-        "MIMode": "lldb",
-        "miDebuggerPath": "lldb-mi",
-        "program": "${workspaceFolder}/output/main"
-      },
-      "windows": {
-        "MIMode": "gdb",
-        "miDebuggerPath": "gdb",
-        "program": "${workspaceFolder}/aoc2016/output/main.exe"
-      },
-      "preLaunchTask": "build"
+        "type": "lldb",
+        "request": "launch",
+        "name": "Debug 2018",
+        "program": "${workspaceFolder}/build/aoc2018/aoc2018.exe",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "terminal": "integrated",
+        "sourceLanguages": ["cpp"],
+        "preLaunchTask": "build",
     },
-    {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "cppdbg",
-      "request": "launch",
-      "args": [],
-      "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
-      "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
-    }
   ]
 }
