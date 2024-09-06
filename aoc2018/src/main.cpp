@@ -4,8 +4,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <vector>
-#include <chrono>
 
 #include "day1.hpp"
 const int DAY = 1;
