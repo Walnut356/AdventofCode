@@ -5,8 +5,8 @@
 #include <sstream>
 #include <string>
 
-#include "day1.hpp"
-const int DAY = 1;
+#include "day2.hpp"
+const int DAY = 2;
 
 int main() {
     std::ifstream t(std::format("./aoc2018/test_data/day{}.txt", DAY));
