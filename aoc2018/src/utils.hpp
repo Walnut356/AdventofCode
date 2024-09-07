@@ -1,6 +1,8 @@
 #pragma once
 
+#include <cstring>
 #include <string>
+#include <utility>
 #define NTDDI_WIN10_19H1
 #define _WIN32_WINNT_WIN10
 #include <windows.h>
@@ -13,13 +15,14 @@
 #include <profileapi.h>
 #include <stdbool.h>
 
+#include <iostream>
 #include <limits.h>
 #include <stdint.h>
-#include <iostream>
+
 
 // sorry c devs, rust names are just better
-typedef unsigned char u8;
-typedef signed char i8;
+typedef uint8_t u8;
+typedef int8_t i8;
 typedef uint16_t u16;
 typedef int16_t i16;
 typedef uint32_t u32;
@@ -57,7 +60,7 @@ double time_now() {
 }
 
 void print_dur(double t) {
-    std::string unit {};
+    std::string unit{};
     double time;
     char t_str[30];
     if (t > 1000000000) { // s
@@ -80,3 +83,100 @@ void print_dur(double t) {
 
     std::cout << t_str << unit << " |\n";
 }
+
+struct Line {
+    Line& operator++() {
+        data += len + 1;
+        if (data >= end) {
+            len = 0;
+            return *this;
+        }
+
+        char* loc = strchr(data, '\n');
+        if (loc == 0) {
+            len = (u64) (end - data);
+        } else {
+            len = loc - data;
+        }
+
+        return *this;
+    }
+
+    bool operator!=(Line rhs) {
+        auto val = data != rhs.data || len != rhs.len;
+        // std::cout << val;
+        return val;
+    }
+
+    Line operator*() {
+        return *this;
+    }
+
+    char* data;
+    u64 len;
+    char* end;
+};
+
+struct Lines {
+    // essentially gets a slice view of the target string
+    explicit Lines(std::string& val) {
+        this->curr = (char*) &val[0];
+        this->last = (&val[0]) + val.length();
+    }
+
+    Line begin() {
+        char* loc = strchr(this->curr, '\n');
+        if (loc == 0) {
+            return Line{ curr, (u64) (last - curr), last };
+        } else {
+            auto result = Line{ curr, (u64) (loc - curr), last };
+            return result;
+        }
+    }
+
+    Line end() {
+        return Line{ last, 0, last };
+    }
+
+private:
+    char* curr{ 0 };
+    char* last{ 0 };
+};
+
+struct LinesRange {};
+
+/// Turns a string into an i64, so long as the number is less than 256 digits long.
+///
+/// Returns the a pair of (`number`, `characters_processed`). `characters_processed` maybe not be
+/// equal to the **digit**-length of `number` due to `+` and `-`
+std::pair<i64, u8> parse_int(char* str) {
+    i8 mul = 1;
+    i64 state = 0;
+    u8 i = 0;
+    while (str[i] != 0) {
+        auto c = str[i];
+        switch (c) {
+        case '+':
+            mul = 1;
+            break;
+        case '-':
+            mul = -1;
+            break;
+        default:
+            if (std::isdigit(c)) {
+                state = (state * 10) + (c - '0');
+            } else {
+                goto end;
+            }
+        };
+        i += 1;
+    }
+
+end:
+    return std::make_pair(state, i);
+}
+
+template<typename T>
+struct Pos {
+    T x, y;
+};

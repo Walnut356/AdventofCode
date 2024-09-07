@@ -58,7 +58,7 @@
         "type": "lldb",
         "request": "launch",
         "name": "Debug 2018",
-        "program": "${workspaceFolder}/build/aoc2018/aoc2018.exe",
+        "program": "${workspaceFolder}/build/aoc2018/Debug/aoc2018.exe",
         "args": [],
         "cwd": "${workspaceFolder}",
         "terminal": "integrated",
